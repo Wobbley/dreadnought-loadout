@@ -1,0 +1,29 @@
+{
+  "name": "dreadnought-loadout",
+  "version": "1.0.0",
+  "description": "Loadout builder for Dreadnought",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wobbley/dreadnought-loadout.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wobbley/dreadnought-loadout/issues"
+  },
+  "homepage": "https://github.com/Wobbley/dreadnought-loadout#readme",
+  "dependencies": {
+    "angular2": "2.0.0-alpha.44",
+    "systemjs": "0.19.2"
+  },
+  "devDependencies": {
+    "live-server": "^0.8.2",
+    "typescript": "^1.6.2"
+  }
+}

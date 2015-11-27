@@ -1,0 +1,29 @@
+<h1>Loadout Creator</h1>
+<h2>Choose your Ship</h2>
+<div class="loadout-container">
+  <div class="loadout-box">
+    <img class="loadout-element" (click)="selectPart('ship')" src="{{selectedShip.icon_uri}}">
+  </div>
+  <div class="loadout-box">
+    <img class="loadout-element" (click)="selectPart('primaryWeapon')" src="temp/placeholder.png">
+    <img class="loadout-element" (click)="selectPart('secondaryWeapon')" src="temp/placeholder.png">
+  </div>
+  <div class="loadout-box">
+    <img class="loadout-element" (click)="selectPart('primaryModule')" src="temp/placeholder.png">
+    <img class="loadout-element" (click)="selectPart('secondaryModule')" src="temp/placeholder.png">
+    <img class="loadout-element" (click)="selectPart('perimeterModule')" src="temp/placeholder.png">
+    <img class="loadout-element" (click)="selectPart('internalModule')" src="temp/placeholder.png">
+  </div>
+  <div>
+  <img class="loadout-element" (click)="selectPart('communications')" src="temp/placeholder.png">
+  <img class="loadout-element" (click)="selectPart('navigation')" src="temp/placeholder.png">
+  <img class="loadout-element" (click)="selectPart('engineering')" src="temp/placeholder.png">
+  <img class="loadout-element" (click)="selectPart('weapons')" src="temp/placeholder.png">
+  </div>
+</div>
+<div *ng-if="selectedElement == 'ship'" class="part-picker">
+  <div  *ng-for="#ship of ships" class="part-picker-element">
+    <img src="{{ship.icon_uri}}" (click)="selectShip(ship)">
+    <span>{{ship.name}}</span>
+  </div>
+</div>
