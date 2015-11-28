@@ -26,11 +26,11 @@ class LoadoutComponent {
   private selectedShip: Ship = {"id": 0, "name": "Select ship", "class": "none", "weight": "None", "icon_uri": "temp/logo.png"};
   
   private ships = SHIPS;
-  private selectedElement;
+  private currentLoadoutElement;
   private infoVisible = false;
 
   selectPart(part: string) {
-    this.selectedElement = part;
+    this.currentLoadoutElement = part;
   }
 
   showInfo() {
@@ -43,11 +43,9 @@ class LoadoutComponent {
   
   selectShip(ship: Ship) {
     this.selectedShip = ship;
-    this.selectedElement = null;
+    this.currentLoadoutElement = null;
   }
 
 }
-
-
 
 bootstrap(LoadoutComponent);

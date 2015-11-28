@@ -21,7 +21,7 @@
   <img class="loadout-element" (click)="selectPart('weapons')" src="temp/placeholder.png">
   </div>
 </div>
-<div *ng-if="selectedElement == 'ship'" class="part-picker">
+<div *ng-if="currentlySelectedLoadoutElement == 'ship'" class="part-picker">
   <div  *ng-for="#ship of ships" class="part-picker-element">
     <img src="{{ship.icon_uri}}" (click)="selectShip(ship)">
     <span>{{ship.name}}</span>

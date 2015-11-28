@@ -27,7 +27,7 @@ var LoadoutComponent = (function () {
         this.infoVisible = false;
     }
     LoadoutComponent.prototype.selectPart = function (part) {
-        this.selectedElement = part;
+        this.currentLoadoutElement = part;
     };
     LoadoutComponent.prototype.showInfo = function () {
         this.infoVisible = true;
@@ -37,7 +37,7 @@ var LoadoutComponent = (function () {
     };
     LoadoutComponent.prototype.selectShip = function (ship) {
         this.selectedShip = ship;
-        this.selectedElement = null;
+        this.currentLoadoutElement = null;
     };
     LoadoutComponent = __decorate([
         angular2_1.Component({
