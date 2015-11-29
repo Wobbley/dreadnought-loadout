@@ -5,11 +5,11 @@
     <img class="loadout-element" (click)="selectPart('ship')" src="{{selectedShip.icon_uri}}">
   </div>
   <div class="loadout-box">
-    <img class="loadout-element" (click)="selectPart('primaryWeapon')" src="temp/placeholder.png">
-    <img class="loadout-element" (click)="selectPart('secondaryWeapon')" src="temp/placeholder.png">
+    <img class="loadout-element" (click)="getWeaponSlot('PRIMARY')" src="{{selectedWeapons[0].icon_uri}}">
+    <img class="loadout-element" (click)="getWeaponSlot('SECONDARY')" src="{{selectedWeapons[1].icon_uri}}">
   </div>
   <div class="loadout-box">
-    <img class="loadout-element" (click)="selectPart('primaryModule')" src="temp/placeholder.png">
+    <img class="loadout-element" (click)="getModule('primaryModule')" src="temp/placeholder.png">
     <img class="loadout-element" (click)="selectPart('secondaryModule')" src="temp/placeholder.png">
     <img class="loadout-element" (click)="selectPart('perimeterModule')" src="temp/placeholder.png">
     <img class="loadout-element" (click)="selectPart('internalModule')" src="temp/placeholder.png">
@@ -21,9 +21,21 @@
   <img class="loadout-element" (click)="selectPart('weapons')" src="temp/placeholder.png">
   </div>
 </div>
-<div *ng-if="currentlySelectedLoadoutElement == 'ship'" class="part-picker">
+<div *ng-if="currentLoadoutElement == 'ship'" class="part-picker">
   <div  *ng-for="#ship of ships" class="part-picker-element">
     <img src="{{ship.icon_uri}}" (click)="selectShip(ship)">
     <span>{{ship.name}}</span>
+  </div>
+</div>
+<div *ng-if="currentLoadoutElement == 'weapon'" class="part-picker">
+  <div  *ng-for="#weapon of weapons" class="part-picker-element">
+    <img src="{{weapon.icon_uri}}" (click)="selectWeapon(weapon)">
+    <span>{{weapon.name}}</span>
+  </div>
+</div>
+<div *ng-if="currentLoadoutElement == 'module'" class="part-picker">
+  <div  *ng-for="#module of modules" class="part-picker-element">
+    <img src="{{module.icon_uri}}" (click)="selectWeapon(weapon)">
+    <span>{{weapon.name}}</span>
   </div>
 </div>
