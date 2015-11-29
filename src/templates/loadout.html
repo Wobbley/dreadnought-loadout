@@ -1,5 +1,3 @@
-<h1>Loadout Creator</h1>
-<h2>Choose your Ship</h2>
 <div class="loadout-container">
   <div class="loadout-box">
     <img class="loadout-element" (click)="selectPart('ship')" src="{{selectedShip.icon_uri}}">
@@ -9,10 +7,10 @@
     <img class="loadout-element" (click)="getWeaponSlot('SECONDARY')" src="{{selectedWeapons[1].icon_uri}}">
   </div>
   <div class="loadout-box">
-    <img class="loadout-element" (click)="getModule('primaryModule')" src="temp/placeholder.png">
-    <img class="loadout-element" (click)="selectPart('secondaryModule')" src="temp/placeholder.png">
-    <img class="loadout-element" (click)="selectPart('perimeterModule')" src="temp/placeholder.png">
-    <img class="loadout-element" (click)="selectPart('internalModule')" src="temp/placeholder.png">
+    <img class="loadout-element" (click)="getAbility('PRIMARY')" src="{{selectedAbilities[0].icon_uri}}">
+    <img class="loadout-element" (click)="getAbility('SECONDARY')" src="{{selectedAbilities[1].icon_uri}}">
+    <img class="loadout-element" (click)="getAbility('PERIMETER')" src="{{selectedAbilities[2].icon_uri}}">
+    <img class="loadout-element" (click)="getAbility('INTERNAL')" src="{{selectedAbilities[3].icon_uri}}">
   </div>
   <div>
   <img class="loadout-element" (click)="selectPart('communications')" src="temp/placeholder.png">
@@ -33,9 +31,9 @@
     <span>{{weapon.name}}</span>
   </div>
 </div>
-<div *ng-if="currentLoadoutElement == 'module'" class="part-picker">
-  <div  *ng-for="#module of modules" class="part-picker-element">
-    <img src="{{module.icon_uri}}" (click)="selectWeapon(weapon)">
-    <span>{{weapon.name}}</span>
+<div *ng-if="currentLoadoutElement == 'ability'" class="part-picker">
+  <div  *ng-for="#ability of abilities" class="part-picker-element">
+    <img src="{{ability.icon_uri}}" (click)="selectAbility(ability)">
+    <span>{{ability.name}}</span>
   </div>
 </div>

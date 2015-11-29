@@ -15,27 +15,39 @@ var Ship = (function () {
     }
     return Ship;
 })();
-var WEAPONS;
-(function (WEAPONS) {
-    WEAPONS[WEAPONS["PRIMARY"] = 0] = "PRIMARY";
-    WEAPONS[WEAPONS["SECONDARY"] = 1] = "SECONDARY";
-})(WEAPONS || (WEAPONS = {}));
+var WEAPONTYPE;
+(function (WEAPONTYPE) {
+    WEAPONTYPE[WEAPONTYPE["PRIMARY"] = 0] = "PRIMARY";
+    WEAPONTYPE[WEAPONTYPE["SECONDARY"] = 1] = "SECONDARY";
+})(WEAPONTYPE || (WEAPONTYPE = {}));
 var Weapon = (function () {
     function Weapon() {
     }
     return Weapon;
 })();
-var ABILITY;
-(function (ABILITY) {
-    ABILITY[ABILITY["PRIMARY"] = 0] = "PRIMARY";
-    ABILITY[ABILITY["SECONDARY"] = 1] = "SECONDARY";
-    ABILITY[ABILITY["PERIMETER"] = 2] = "PERIMETER";
-    ABILITY[ABILITY["INTERNAL"] = 3] = "INTERNAL";
-})(ABILITY || (ABILITY = {}));
+var ABILITYTYPE;
+(function (ABILITYTYPE) {
+    ABILITYTYPE[ABILITYTYPE["PRIMARY"] = 0] = "PRIMARY";
+    ABILITYTYPE[ABILITYTYPE["SECONDARY"] = 1] = "SECONDARY";
+    ABILITYTYPE[ABILITYTYPE["PERIMETER"] = 2] = "PERIMETER";
+    ABILITYTYPE[ABILITYTYPE["INTERNAL"] = 3] = "INTERNAL";
+})(ABILITYTYPE || (ABILITYTYPE = {}));
 var Ability = (function () {
     function Ability() {
     }
     return Ability;
+})();
+var PERKTYPE;
+(function (PERKTYPE) {
+    PERKTYPE[PERKTYPE["COMMUNICATIONS"] = 0] = "COMMUNICATIONS";
+    PERKTYPE[PERKTYPE["NAVIGATION"] = 1] = "NAVIGATION";
+    PERKTYPE[PERKTYPE["ENGINEERING"] = 2] = "ENGINEERING";
+    PERKTYPE[PERKTYPE["WEAPONS"] = 3] = "WEAPONS";
+})(PERKTYPE || (PERKTYPE = {}));
+var Perk = (function () {
+    function Perk() {
+    }
+    return Perk;
 })();
 var SHIPS = [
     { "id": 1, "name": "Fulgora", "class": "Corvette", "weight": "Medium", "icon_uri": "temp/fulgora.png" },
@@ -43,33 +55,42 @@ var SHIPS = [
     { "id": 1, "name": "Nox", "class": "Artillery", "weight": "Medium", "icon_uri": "temp/nox.png" },
 ];
 var AWEAPONS = [
-    { "id": 1, "name": "Big Ass Weapon", "slot": WEAPONS.PRIMARY, "icon_uri": "temp/primary-weapon.png" },
-    { "id": 1, "name": "Big Ass Weapon", "slot": WEAPONS.PRIMARY, "icon_uri": "temp/primary-weapon.png" },
-    { "id": 1, "name": "Big Ass Weapon", "slot": WEAPONS.PRIMARY, "icon_uri": "temp/primary-weapon.png" },
-    { "id": 1, "name": "Smaller Weapon", "slot": WEAPONS.SECONDARY, "icon_uri": "temp/secondary-weapon.png" },
-    { "id": 1, "name": "Smaller Weapon", "slot": WEAPONS.SECONDARY, "icon_uri": "temp/secondary-weapon.png" },
-    { "id": 1, "name": "Smaller Weapon", "slot": WEAPONS.SECONDARY, "icon_uri": "temp/secondary-weapon.png" },
+    { "id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png" },
+    { "id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png" },
+    { "id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png" },
+    { "id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png" },
+    { "id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png" },
+    { "id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png" },
 ];
 var AABILITY = [
-    { "id": 1, "name": "Main Module", "slot": ABILITY.PRIMARY, "icon_uri": "temp/primary-ability.png" },
-    { "id": 1, "name": "Main Module", "slot": ABILITY.PRIMARY, "icon_uri": "temp/primary-ability.png" },
-    { "id": 1, "name": "Main Module", "slot": ABILITY.PRIMARY, "icon_uri": "temp/primary-ability.png" },
-    { "id": 1, "name": "Secondary Module", "slot": ABILITY.SECONDARY, "icon_uri": "temp/secondary-ability.png" },
-    { "id": 1, "name": "Secondary Module", "slot": ABILITY.SECONDARY, "icon_uri": "temp/secondary-ability.png" },
-    { "id": 1, "name": "Secondary Module", "slot": ABILITY.SECONDARY, "icon_uri": "temp/secondary-ability.png" },
-    { "id": 1, "name": "Internal Module", "slot": ABILITY.INTERNAL, "icon_uri": "temp/internal-ability.png" },
-    { "id": 1, "name": "Internal Module", "slot": ABILITY.INTERNAL, "icon_uri": "temp/internal-ability.png" },
-    { "id": 1, "name": "Internal Module", "slot": ABILITY.INTERNAL, "icon_uri": "temp/internal-ability.png" },
-    { "id": 1, "name": "Perimeter Module", "slot": ABILITY.PERIMETER, "icon_uri": "temp/perimeter-ability.png" },
-    { "id": 1, "name": "Perimeter Module", "slot": ABILITY.PERIMETER, "icon_uri": "temp/perimeter-ability.png" },
-    { "id": 1, "name": "Perimeter Module", "slot": ABILITY.PERIMETER, "icon_uri": "temp/perimeter-ability.png" },
+    { "id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png" },
+    { "id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png" },
+    { "id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png" },
+    { "id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png" },
+    { "id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png" },
+    { "id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png" },
+    { "id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png" },
+    { "id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png" },
+    { "id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png" },
+    { "id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png" },
+    { "id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png" },
+    { "id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png" },
+];
+var APERKS = [
+    { "id": 1, "name": "Main Module", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/primary-ability.png" },
 ];
 var LoadoutComponent = (function () {
     function LoadoutComponent() {
         this.selectedShip = { "id": 0, "name": "Ship", "class": "none", "weight": "None", "icon_uri": "temp/logo.png" };
         this.selectedWeapons = [
-            { "id": 1, "name": "Primary", "slot": WEAPONS.PRIMARY, "icon_uri": "temp/logo.png" },
-            { "id": 1, "name": "Secondary", "slot": WEAPONS.SECONDARY, "icon_uri": "temp/logo.png" }
+            { "id": 1, "name": "Primary", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/logo.png" },
+            { "id": 1, "name": "Secondary", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/logo.png" }
+        ];
+        this.selectedAbilities = [
+            { "id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/logo.png" },
+            { "id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/logo.png" },
+            { "id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/logo.png" },
+            { "id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/logo.png" },
         ];
         this.ships = SHIPS;
         this.infoVisible = false;
@@ -84,7 +105,7 @@ var LoadoutComponent = (function () {
         this.infoVisible = false;
     };
     LoadoutComponent.prototype.getWeaponSlot = function (slot) {
-        var weaponType = WEAPONS[slot];
+        var weaponType = WEAPONTYPE[slot];
         var correctWeapons = [];
         for (var _i = 0; _i < AWEAPONS.length; _i++) {
             var weapon = AWEAPONS[_i];
@@ -95,7 +116,21 @@ var LoadoutComponent = (function () {
         this.weapons = correctWeapons;
         this.currentLoadoutElement = "weapon";
     };
-    LoadoutComponent.prototype.getModule = function (slot) {
+    LoadoutComponent.prototype.getAbility = function (slot) {
+        var abilityType = ABILITYTYPE[slot];
+        var correctAbilities = [];
+        for (var _i = 0; _i < AABILITY.length; _i++) {
+            var ability = AABILITY[_i];
+            if (ability.slot == abilityType) {
+                correctAbilities.push(ability);
+            }
+        }
+        this.abilities = correctAbilities;
+        this.currentLoadoutElement = "ability";
+    };
+    LoadoutComponent.prototype.selectAbility = function (ability) {
+        this.selectedAbilities[ability.slot] = ability;
+        this.currentLoadoutElement = null;
     };
     LoadoutComponent.prototype.selectShip = function (ship) {
         this.selectedShip = ship;

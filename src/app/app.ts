@@ -9,7 +9,7 @@ class Ship {
   icon_uri: string;
 }
 
-enum WEAPONS {
+enum WEAPONTYPE {
   PRIMARY,
   SECONDARY,
 }
@@ -17,11 +17,11 @@ enum WEAPONS {
 class Weapon {
   id: number;
   name: string;
-  slot: WEAPONS;
+  slot: WEAPONTYPE;
   icon_uri: string;
 }
 
-enum ABILITY {
+enum ABILITYTYPE {
   PRIMARY,
   SECONDARY,
   PERIMETER,
@@ -31,7 +31,21 @@ enum ABILITY {
 class Ability {
   id: number;
   name: string;
-  slot: ABILITY;
+  slot: ABILITYTYPE;
+  icon_uri: string;
+}
+
+enum PERKTYPE {
+  COMMUNICATIONS,
+  NAVIGATION,
+  ENGINEERING,
+  WEAPONS,
+}
+
+class Perk {
+  id: number;
+  name: string;
+  slot: PERKTYPE;
   icon_uri: string;
 }
 
@@ -42,27 +56,31 @@ let SHIPS: Ship[] = [
 ];
 
 let AWEAPONS: Weapon[] = [
-  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONS.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
-  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONS.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
-  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONS.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
-  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONS.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
-  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONS.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
-  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONS.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
+  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
+  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
+  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
+  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
+  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
+  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
 ];
 
 let AABILITY: Ability[] = [
-  {"id": 1, "name": "Main Module", "slot": ABILITY.PRIMARY, "icon_uri": "temp/primary-ability.png"},
-  {"id": 1, "name": "Main Module", "slot": ABILITY.PRIMARY, "icon_uri": "temp/primary-ability.png"},
-  {"id": 1, "name": "Main Module", "slot": ABILITY.PRIMARY, "icon_uri": "temp/primary-ability.png"},
-  {"id": 1, "name": "Secondary Module", "slot": ABILITY.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
-  {"id": 1, "name": "Secondary Module", "slot": ABILITY.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
-  {"id": 1, "name": "Secondary Module", "slot": ABILITY.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
-  {"id": 1, "name": "Internal Module", "slot": ABILITY.INTERNAL, "icon_uri": "temp/internal-ability.png"},
-  {"id": 1, "name": "Internal Module", "slot": ABILITY.INTERNAL, "icon_uri": "temp/internal-ability.png"},
-  {"id": 1, "name": "Internal Module", "slot": ABILITY.INTERNAL, "icon_uri": "temp/internal-ability.png"},
-  {"id": 1, "name": "Perimeter Module", "slot": ABILITY.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
-  {"id": 1, "name": "Perimeter Module", "slot": ABILITY.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
-  {"id": 1, "name": "Perimeter Module", "slot": ABILITY.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
+  {"id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png"},
+  {"id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png"},
+  {"id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png"},
+  {"id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
+  {"id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
+  {"id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
+  {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png"},
+  {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png"},
+  {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png"},
+  {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
+  {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
+  {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
+]
+
+let APERKS: Perk[] = [
+  {"id": 1, "name": "Main Module", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/primary-ability.png"},
 ]
 
 @Component({
@@ -75,11 +93,19 @@ let AABILITY: Ability[] = [
 class LoadoutComponent {
   private selectedShip: Ship = {"id": 0, "name": "Ship", "class": "none", "weight": "None", "icon_uri": "temp/logo.png"};
   private selectedWeapons: Weapon[] = [
-    {"id": 1, "name": "Primary", "slot": WEAPONS.PRIMARY, "icon_uri": "temp/logo.png"},
-    {"id": 1, "name": "Secondary", "slot": WEAPONS.SECONDARY, "icon_uri": "temp/logo.png"}
+    {"id": 1, "name": "Primary", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Secondary", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/logo.png"}
   ];
+  private selectedAbilities: Ability[] = [
+    {"id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/logo.png"},
+    
+  ]
   private ships = SHIPS;
   private weapons: Weapon[];
+  private abilities: Ability[];
   private currentLoadoutElement;
   private infoVisible = false;
 
@@ -96,10 +122,10 @@ class LoadoutComponent {
   }
   
   getWeaponSlot(slot: string) {
-    let weaponType: WEAPONS = WEAPONS[slot];
+    let weaponType: WEAPONTYPE = WEAPONTYPE[slot];
     let correctWeapons: Weapon[]= []
     for (let weapon of AWEAPONS) {
-      if(weapon.slot == weaponType) {
+      if (weapon.slot == weaponType) {
         correctWeapons.push(weapon)
       }
     }
@@ -107,8 +133,21 @@ class LoadoutComponent {
     this.currentLoadoutElement = "weapon";
   }
   
-  getModule(slot: string) {
-    
+  getAbility(slot: string) {
+    let abilityType: ABILITYTYPE = ABILITYTYPE[slot];
+    let correctAbilities: Ability[] = []
+    for (let ability of AABILITY) {
+      if (ability.slot == abilityType) {
+        correctAbilities.push(ability);
+      }
+    }
+    this.abilities = correctAbilities;
+    this.currentLoadoutElement = "ability";
+  }
+  
+  selectAbility(ability: Ability) {
+    this.selectedAbilities[ability.slot] = ability;
+    this.currentLoadoutElement = null;
   }
   
   selectShip(ship: Ship) {
