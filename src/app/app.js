@@ -77,7 +77,18 @@ var AABILITY = [
     { "id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png" },
 ];
 var APERKS = [
-    { "id": 1, "name": "Main Module", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/primary-ability.png" },
+    { "id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png" },
+    { "id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png" },
+    { "id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png" },
+    { "id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png" },
+    { "id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png" },
+    { "id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png" },
+    { "id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png" },
+    { "id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png" },
+    { "id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png" },
+    { "id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png" },
+    { "id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png" },
+    { "id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png" },
 ];
 var LoadoutComponent = (function () {
     function LoadoutComponent() {
@@ -91,6 +102,12 @@ var LoadoutComponent = (function () {
             { "id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/logo.png" },
             { "id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/logo.png" },
             { "id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/logo.png" },
+        ];
+        this.selectedPerks = [
+            { "id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/logo.png" },
+            { "id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/logo.png" },
+            { "id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/logo.png" },
+            { "id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/logo.png" },
         ];
         this.ships = SHIPS;
         this.infoVisible = false;
@@ -128,6 +145,18 @@ var LoadoutComponent = (function () {
         this.abilities = correctAbilities;
         this.currentLoadoutElement = "ability";
     };
+    LoadoutComponent.prototype.getPerk = function (slot) {
+        var perkType = PERKTYPE[slot];
+        var correctPerks = [];
+        for (var _i = 0; _i < APERKS.length; _i++) {
+            var perk = APERKS[_i];
+            if (perk.slot == perkType) {
+                correctPerks.push(perk);
+            }
+        }
+        this.perks = correctPerks;
+        this.currentLoadoutElement = "perk";
+    };
     LoadoutComponent.prototype.selectAbility = function (ability) {
         this.selectedAbilities[ability.slot] = ability;
         this.currentLoadoutElement = null;
@@ -138,6 +167,10 @@ var LoadoutComponent = (function () {
     };
     LoadoutComponent.prototype.selectWeapon = function (weapon) {
         this.selectedWeapons[weapon.slot] = weapon;
+        this.currentLoadoutElement = null;
+    };
+    LoadoutComponent.prototype.selectPerk = function (perk) {
+        this.selectedPerks[perk.slot] = perk;
         this.currentLoadoutElement = null;
     };
     LoadoutComponent = __decorate([

@@ -80,7 +80,18 @@ let AABILITY: Ability[] = [
 ]
 
 let APERKS: Perk[] = [
-  {"id": 1, "name": "Main Module", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/primary-ability.png"},
+  {"id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png"},
+  {"id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png"},
+  {"id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png"},
+  {"id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png"},
+  {"id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png"},
+  {"id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png"},
+  {"id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png"},
+  {"id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png"},
+  {"id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png"},
+  {"id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png"},
+  {"id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png"},
+  {"id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png"},
 ]
 
 @Component({
@@ -102,10 +113,17 @@ class LoadoutComponent {
     {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/logo.png"},
     {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/logo.png"},
     
-  ]
+  ];
+  private selectedPerks: Perk[] = [
+    {"id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/logo.png"},
+  ];
   private ships = SHIPS;
   private weapons: Weapon[];
   private abilities: Ability[];
+  private perks: Perk[];
   private currentLoadoutElement;
   private infoVisible = false;
 
@@ -145,6 +163,18 @@ class LoadoutComponent {
     this.currentLoadoutElement = "ability";
   }
   
+  getPerk(slot: string) {
+    let perkType: PERKTYPE = PERKTYPE[slot];
+    let correctPerks: Perk[] = []
+    for (let perk of APERKS) {
+      if (perk.slot == perkType) {
+        correctPerks.push(perk);
+      }
+    }
+    this.perks = correctPerks;
+    this.currentLoadoutElement = "perk"
+  }
+  
   selectAbility(ability: Ability) {
     this.selectedAbilities[ability.slot] = ability;
     this.currentLoadoutElement = null;
@@ -157,6 +187,11 @@ class LoadoutComponent {
   
   selectWeapon(weapon: Weapon) {
     this.selectedWeapons[weapon.slot] = weapon;
+    this.currentLoadoutElement = null;
+  }
+  
+  selectPerk(perk: Perk) {
+    this.selectedPerks[perk.slot] = perk;
     this.currentLoadoutElement = null;
   }
 
