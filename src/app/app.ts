@@ -1,5 +1,5 @@
-import {Component, bootstrap,
-  FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, bootstrap, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Tooltip} from './tooltip';
 
 class Ship {
   id: number;
@@ -96,13 +96,12 @@ let APERKS: Perk[] = [
 
 @Component({
     selector: 'dreadnought-loadout',
-    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
+    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, Tooltip],
     templateUrl: 'templates/loadout.html',
     styleUrls: ['css/default.css']
 })
-
 class LoadoutComponent {
-  private selectedShip: Ship = {"id": 0, "name": "Ship", "class": "none", "weight": "None", "icon_uri": "temp/logo.png"};
+  private selectedShip: Ship = {"id": null, "name": null, "class": null, "weight": null, "icon_uri": "temp/logo.png"};
   private selectedWeapons: Weapon[] = [
     {"id": 1, "name": "Primary", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/logo.png"},
     {"id": 1, "name": "Secondary", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/logo.png"}
@@ -129,6 +128,10 @@ class LoadoutComponent {
 
   selectPart(part: string) {
     this.currentLoadoutElement = part;
+  }
+  
+  shipSelected() {
+    return this.selectedShip.id != null;
   }
 
   showInfo() {

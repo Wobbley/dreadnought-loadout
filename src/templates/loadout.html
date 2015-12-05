@@ -2,17 +2,17 @@
   <div class="loadout-box">
     <img class="loadout-element" (click)="selectPart('ship')" src="{{selectedShip.icon_uri}}">
   </div>
-  <div class="loadout-box">
+  <div *ng-if="shipSelected()" class="loadout-box">
     <img class="loadout-element" (click)="getWeaponSlot('PRIMARY')" src="{{selectedWeapons[0].icon_uri}}">
     <img class="loadout-element" (click)="getWeaponSlot('SECONDARY')" src="{{selectedWeapons[1].icon_uri}}">
   </div>
-  <div class="loadout-box">
+  <div *ng-if="shipSelected()" class="loadout-box">
     <img class="loadout-element" (click)="getAbility('PRIMARY')" src="{{selectedAbilities[0].icon_uri}}">
     <img class="loadout-element" (click)="getAbility('SECONDARY')" src="{{selectedAbilities[1].icon_uri}}">
     <img class="loadout-element" (click)="getAbility('PERIMETER')" src="{{selectedAbilities[2].icon_uri}}">
     <img class="loadout-element" (click)="getAbility('INTERNAL')" src="{{selectedAbilities[3].icon_uri}}">
   </div>
-  <div>
+  <div *ng-if="shipSelected()">
   <img class="loadout-element" (click)="getPerk('COMMUNICATIONS')" src="{{selectedPerks[0].icon_uri}}">
   <img class="loadout-element" (click)="getPerk('NAVIGATION')" src="{{selectedPerks[1].icon_uri}}">
   <img class="loadout-element" (click)="getPerk('ENGINEERING')" src="{{selectedPerks[2].icon_uri}}">

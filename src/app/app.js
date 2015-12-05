@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var tooltip_1 = require('./tooltip');
 var Ship = (function () {
     function Ship() {
     }
@@ -92,7 +93,7 @@ var APERKS = [
 ];
 var LoadoutComponent = (function () {
     function LoadoutComponent() {
-        this.selectedShip = { "id": 0, "name": "Ship", "class": "none", "weight": "None", "icon_uri": "temp/logo.png" };
+        this.selectedShip = { "id": null, "name": null, "class": null, "weight": null, "icon_uri": "temp/logo.png" };
         this.selectedWeapons = [
             { "id": 1, "name": "Primary", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/logo.png" },
             { "id": 1, "name": "Secondary", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/logo.png" }
@@ -114,6 +115,9 @@ var LoadoutComponent = (function () {
     }
     LoadoutComponent.prototype.selectPart = function (part) {
         this.currentLoadoutElement = part;
+    };
+    LoadoutComponent.prototype.shipSelected = function () {
+        return this.selectedShip.id != null;
     };
     LoadoutComponent.prototype.showInfo = function () {
         this.infoVisible = true;
@@ -176,7 +180,7 @@ var LoadoutComponent = (function () {
     LoadoutComponent = __decorate([
         angular2_1.Component({
             selector: 'dreadnought-loadout',
-            directives: [angular2_1.FORM_DIRECTIVES, angular2_1.CORE_DIRECTIVES],
+            directives: [angular2_1.FORM_DIRECTIVES, angular2_1.CORE_DIRECTIVES, tooltip_1.Tooltip],
             templateUrl: 'templates/loadout.html',
             styleUrls: ['css/default.css']
         }), 
