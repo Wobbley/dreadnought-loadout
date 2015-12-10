@@ -1,52 +1,8 @@
 import {Component, bootstrap, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
-
-class Ship {
-  id: number;
-  name: string;
-  class: string;
-  weight: string;
-  icon_uri: string;
-}
-
-enum WEAPONTYPE {
-  PRIMARY,
-  SECONDARY,
-}
-
-class Weapon {
-  id: number;
-  name: string;
-  slot: WEAPONTYPE;
-  icon_uri: string;
-}
-
-enum ABILITYTYPE {
-  PRIMARY,
-  SECONDARY,
-  PERIMETER,
-  INTERNAL,
-}
-
-class Ability {
-  id: number;
-  name: string;
-  slot: ABILITYTYPE;
-  icon_uri: string;
-}
-
-enum PERKTYPE {
-  COMMUNICATIONS,
-  NAVIGATION,
-  ENGINEERING,
-  WEAPONS,
-}
-
-class Perk {
-  id: number;
-  name: string;
-  slot: PERKTYPE;
-  icon_uri: string;
-}
+import {Ship} from './ship';
+import {Weapon, WEAPONTYPE} from './weapon';
+import {Ability, ABILITYTYPE} from './ability';
+import {Perk, PERKTYPE} from './perk';
 
 let SHIPS: Ship[] = [
   { "id": 1, "name": "Fulgora", "class": "Corvette", "weight":"Medium", "icon_uri": "temp/fulgora.png"},
