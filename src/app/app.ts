@@ -1,5 +1,4 @@
 import {Component, bootstrap, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
-import {Tooltip} from './tooltip';
 
 class Ship {
   id: number;
@@ -96,7 +95,7 @@ let APERKS: Perk[] = [
 
 @Component({
     selector: 'dreadnought-loadout',
-    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, Tooltip],
+    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
     templateUrl: 'templates/loadout.html',
     styleUrls: ['css/default.css']
 })
