@@ -1,13 +1,15 @@
-export interface Perk {
+import {PERKTYPE} from './perk-type'
+
+export class Perk {
   id: number;
   name: string;
   slot: PERKTYPE;
-  icon_uri: string;
-}
-
-export enum PERKTYPE {
-  COMMUNICATIONS,
-  NAVIGATION,
-  ENGINEERING,
-  WEAPONS,
+  iconUri: string;
+  
+  constructor(id: number, name: string, slot: PERKTYPE, iconUri: string;) {
+    this.id = id;
+    this.name = name;
+    this.slot = slot;
+    this.iconUri = iconUri;
+  }
 }

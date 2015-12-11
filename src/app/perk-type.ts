@@ -1,0 +1,6 @@
+export enum PerkType {
+  COMMUNICATIONS,
+  NAVIGATION,
+  ENGINEERING,
+  WEAPONS,
+}

@@ -1,7 +1,11 @@
-export interface Ship {
+export class Ship {
   id: number;
   name: string;
-  class: string;
-  weight: string;
-  icon_uri: string;
+  iconUri: string;
+  
+  constructor(id: number, name: string, iconUri: string) {
+    this.id = id;
+    this.name = name;
+    this.iconUri = iconUri;
+  }
 }

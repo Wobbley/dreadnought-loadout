@@ -1,53 +1,12 @@
 import {Component, bootstrap, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Ship} from './ship';
-import {Weapon, WEAPONTYPE} from './weapon';
-import {Ability, ABILITYTYPE} from './ability';
-import {Perk, PERKTYPE} from './perk';
-
-let SHIPS: Ship[] = [
-  { "id": 1, "name": "Fulgora", "class": "Corvette", "weight":"Medium", "icon_uri": "temp/fulgora.png"},
-  { "id": 1, "name": "Zmey", "class": "Dreadnought", "weight":"Medium", "icon_uri": "temp/zmey.png"},
-  { "id": 1, "name": "Nox", "class": "Artillery", "weight":"Medium", "icon_uri": "temp/nox.png"},
-];
-
-let AWEAPONS: Weapon[] = [
-  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
-  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
-  {"id": 1, "name": "Big Ass Weapon", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/primary-weapon.png"},
-  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
-  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
-  {"id": 1, "name": "Smaller Weapon", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/secondary-weapon.png"},
-];
-
-let AABILITY: Ability[] = [
-  {"id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png"},
-  {"id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png"},
-  {"id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/primary-ability.png"},
-  {"id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
-  {"id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
-  {"id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/secondary-ability.png"},
-  {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png"},
-  {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png"},
-  {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/internal-ability.png"},
-  {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
-  {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
-  {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/perimeter-ability.png"},
-]
-
-let APERKS: Perk[] = [
-  {"id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png"},
-  {"id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png"},
-  {"id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/communications-perk.png"},
-  {"id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png"},
-  {"id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png"},
-  {"id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/navigation-perk.png"},
-  {"id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png"},
-  {"id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png"},
-  {"id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/engineering-perk.png"},
-  {"id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png"},
-  {"id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png"},
-  {"id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/weapons-perk.png"},
-]
+import {Weapon} from './weapon';
+import {WeaponType} from './weapon-type';
+import {Ability} from './ability';
+import {AbilityType} from './ability-type'
+import {Perk} from './perk';
+import {PerkType} from './perk-type';
+import {SHIPS, APERKS, AWEAPONS, AABILITY} from './sample-data';
 
 @Component({
     selector: 'dreadnought-loadout',
@@ -56,23 +15,23 @@ let APERKS: Perk[] = [
     styleUrls: ['css/default.css']
 })
 class LoadoutComponent {
-  private selectedShip: Ship = {"id": null, "name": null, "class": null, "weight": null, "icon_uri": "temp/logo.png"};
+  private selectedShip: Ship = {"id": null, "name": null, "iconUri": "temp/logo.png"};
   private selectedWeapons: Weapon[] = [
-    {"id": 1, "name": "Primary", "slot": WEAPONTYPE.PRIMARY, "icon_uri": "temp/logo.png"},
-    {"id": 1, "name": "Secondary", "slot": WEAPONTYPE.SECONDARY, "icon_uri": "temp/logo.png"}
+    {"id": 1, "name": "Primary", "slot": WeaponType.PRIMARY, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Secondary", "slot": WeaponType.SECONDARY, "iconUri": "temp/logo.png"}
   ];
   private selectedAbilities: Ability[] = [
-    {"id": 1, "name": "Main Module", "slot": ABILITYTYPE.PRIMARY, "icon_uri": "temp/logo.png"},
-    {"id": 1, "name": "Secondary Module", "slot": ABILITYTYPE.SECONDARY, "icon_uri": "temp/logo.png"},
-    {"id": 1, "name": "Perimeter Module", "slot": ABILITYTYPE.PERIMETER, "icon_uri": "temp/logo.png"},
-    {"id": 1, "name": "Internal Module", "slot": ABILITYTYPE.INTERNAL, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Main Module", "slot": AbilityType.PRIMARY, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Secondary Module", "slot": AbilityType.SECONDARY, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Perimeter Module", "slot": AbilityType.PERIMETER, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Internal Module", "slot": AbilityType.INTERNAL, "iconUri": "temp/logo.png"},
     
   ];
   private selectedPerks: Perk[] = [
-    {"id": 1, "name": "Communications", "slot": PERKTYPE.COMMUNICATIONS, "icon_uri": "temp/logo.png"},
-    {"id": 1, "name": "Navigation", "slot": PERKTYPE.NAVIGATION, "icon_uri": "temp/logo.png"},
-    {"id": 1, "name": "Engineering", "slot": PERKTYPE.ENGINEERING, "icon_uri": "temp/logo.png"},
-    {"id": 1, "name": "Weapons", "slot": PERKTYPE.WEAPONS, "icon_uri": "temp/logo.png"},
+    {"id": 1, "name": "Communications", "slot": PerkType.COMMUNICATIONS, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Navigation", "slot": PerkType.NAVIGATION, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Engineering", "slot": PerkType.ENGINEERING, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Weapons", "slot": PerkType.WEAPONS, "iconUri": "temp/logo.png"},
   ];
   private ships = SHIPS;
   private weapons: Weapon[];
@@ -98,7 +57,7 @@ class LoadoutComponent {
   }
   
   getWeaponSlot(slot: string) {
-    let weaponType: WEAPONTYPE = WEAPONTYPE[slot];
+    let weaponType: WeaponType = WeaponType[slot];
     let correctWeapons: Weapon[]= []
     for (let weapon of AWEAPONS) {
       if (weapon.slot == weaponType) {
@@ -110,7 +69,7 @@ class LoadoutComponent {
   }
   
   getAbility(slot: string) {
-    let abilityType: ABILITYTYPE = ABILITYTYPE[slot];
+    let abilityType: AbilityType = AbilityType[slot];
     let correctAbilities: Ability[] = []
     for (let ability of AABILITY) {
       if (ability.slot == abilityType) {
@@ -122,7 +81,7 @@ class LoadoutComponent {
   }
   
   getPerk(slot: string) {
-    let perkType: PERKTYPE = PERKTYPE[slot];
+    let perkType: PerkType = PerkType[slot];
     let correctPerks: Perk[] = []
     for (let perk of APERKS) {
       if (perk.slot == perkType) {

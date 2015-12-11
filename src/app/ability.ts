@@ -1,13 +1,12 @@
-export interface Ability {
+import {AbilityType} from './ability-type'
+
+export class Ability {
   id: number;
   name: string;
-  slot: ABILITYTYPE;
-  icon_uri: string;
-}
-
-export enum ABILITYTYPE {
-  PRIMARY,
-  SECONDARY,
-  PERIMETER,
-  INTERNAL,
+  slot: AbilityType;
+  iconUri: string;
+  
+  constructor(id: number, name: string, slot: AbilityType, iconUri: string) {
+    
+  }
 }

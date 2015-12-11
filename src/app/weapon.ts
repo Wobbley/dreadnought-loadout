@@ -1,11 +1,15 @@
-export interface Weapon {
+import {WeaponType} from './weapon-type'
+
+export class Weapon {
   id: number;
   name: string;
-  slot: WEAPONTYPE;
-  icon_uri: string;
-}
-
-export enum WEAPONTYPE {
-  PRIMARY,
-  SECONDARY,
+  slot: WeaponType;
+  iconUri: string;
+  
+  constructor(id: number, name: string, slot: WeaponType, iconUri: string;) {
+    this.id = id;
+    this.name = name;
+    this.slot = slot;
+    this.iconUri = iconUri;
+  }
 }

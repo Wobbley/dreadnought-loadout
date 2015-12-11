@@ -1,45 +1,45 @@
 <div class="loadout-container">
   <div class="loadout-box">
-    <img class="loadout-element" (click)="selectPart('ship')" src="{{selectedShip.icon_uri}}">
+    <img class="loadout-element" (click)="selectPart('ship')" src="{{selectedShip.iconUri}}">
   </div>
   <div *ng-if="shipSelected()" class="loadout-box">
-    <img class="loadout-element" (click)="getWeaponSlot('PRIMARY')" src="{{selectedWeapons[0].icon_uri}}">
-    <img class="loadout-element" (click)="getWeaponSlot('SECONDARY')" src="{{selectedWeapons[1].icon_uri}}">
+    <img class="loadout-element" (click)="getWeaponSlot('PRIMARY')" src="{{selectedWeapons[0].iconUri}}">
+    <img class="loadout-element" (click)="getWeaponSlot('SECONDARY')" src="{{selectedWeapons[1].iconUri}}">
   </div>
   <div *ng-if="shipSelected()" class="loadout-box">
-    <img class="loadout-element" (click)="getAbility('PRIMARY')" src="{{selectedAbilities[0].icon_uri}}">
-    <img class="loadout-element" (click)="getAbility('SECONDARY')" src="{{selectedAbilities[1].icon_uri}}">
-    <img class="loadout-element" (click)="getAbility('PERIMETER')" src="{{selectedAbilities[2].icon_uri}}">
-    <img class="loadout-element" (click)="getAbility('INTERNAL')" src="{{selectedAbilities[3].icon_uri}}">
+    <img class="loadout-element" (click)="getAbility('PRIMARY')" src="{{selectedAbilities[0].iconUri}}">
+    <img class="loadout-element" (click)="getAbility('SECONDARY')" src="{{selectedAbilities[1].iconUri}}">
+    <img class="loadout-element" (click)="getAbility('PERIMETER')" src="{{selectedAbilities[2].iconUri}}">
+    <img class="loadout-element" (click)="getAbility('INTERNAL')" src="{{selectedAbilities[3].iconUri}}">
   </div>
   <div *ng-if="shipSelected()">
-  <img class="loadout-element" (click)="getPerk('COMMUNICATIONS')" src="{{selectedPerks[0].icon_uri}}">
-  <img class="loadout-element" (click)="getPerk('NAVIGATION')" src="{{selectedPerks[1].icon_uri}}">
-  <img class="loadout-element" (click)="getPerk('ENGINEERING')" src="{{selectedPerks[2].icon_uri}}">
-  <img class="loadout-element" (click)="getPerk('WEAPONS')" src="{{selectedPerks[3].icon_uri}}">
+    <img class="loadout-element" (click)="getPerk('COMMUNICATIONS')" src="{{selectedPerks[0].iconUri}}">
+    <img class="loadout-element" (click)="getPerk('NAVIGATION')" src="{{selectedPerks[1].iconUri}}">
+    <img class="loadout-element" (click)="getPerk('ENGINEERING')" src="{{selectedPerks[2].iconUri}}">
+    <img class="loadout-element" (click)="getPerk('WEAPONS')" src="{{selectedPerks[3].iconUri}}">
   </div>
 </div>
 <div *ng-if="currentLoadoutElement == 'ship'" class="part-picker">
-  <div  *ng-for="#ship of ships" class="part-picker-element">
-    <img src="{{ship.icon_uri}}" (click)="selectShip(ship)">
+  <div *ng-for="#ship of ships" class="part-picker-element">
+    <img src="{{ship.iconUri}}" (click)="selectShip(ship)">
     <span>{{ship.name}}</span>
   </div>
 </div>
 <div *ng-if="currentLoadoutElement == 'weapon'" class="part-picker">
-  <div  *ng-for="#weapon of weapons" class="part-picker-element">
-    <img src="{{weapon.icon_uri}}" (click)="selectWeapon(weapon)">
+  <div *ng-for="#weapon of weapons" class="part-picker-element">
+    <img src="{{weapon.iconUri}}" (click)="selectWeapon(weapon)">
     <span>{{weapon.name}}</span>
   </div>
 </div>
 <div *ng-if="currentLoadoutElement == 'ability'" class="part-picker">
-  <div  *ng-for="#ability of abilities" class="part-picker-element">
-    <img src="{{ability.icon_uri}}" (click)="selectAbility(ability)">
+  <div *ng-for="#ability of abilities" class="part-picker-element">
+    <img src="{{ability.iconUri}}" (click)="selectAbility(ability)">
     <span>{{ability.name}}</span>
   </div>
 </div>
 <div *ng-if="currentLoadoutElement == 'perk'" class="part-picker">
-  <div  *ng-for="#perk of perks" class="part-picker-element">
-    <img src="{{perk.icon_uri}}" (click)="selectPerk(perk)">
+  <div *ng-for="#perk of perks" class="part-picker-element">
+    <img src="{{perk.iconUri}}" (click)="selectPerk(perk)">
     <span>{{perk.name}}</span>
   </div>
 </div>

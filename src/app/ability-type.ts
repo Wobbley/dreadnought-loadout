@@ -1,0 +1,6 @@
+export enum ABILITYTYPE {
+  PRIMARY,
+  SECONDARY,
+  PERIMETER,
+  INTERNAL,
+}
