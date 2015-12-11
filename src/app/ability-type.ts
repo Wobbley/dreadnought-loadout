@@ -1,4 +1,4 @@
-export enum ABILITYTYPE {
+export enum AbilityType {
   PRIMARY,
   SECONDARY,
   PERIMETER,
