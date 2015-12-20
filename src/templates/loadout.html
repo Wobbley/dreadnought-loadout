@@ -26,19 +26,19 @@
   </div>
 </div>
 <div *ng-if="currentLoadoutElement == 'weapon'" class="part-picker">
-  <div *ng-for="#weapon of weapons" class="part-picker-element">
+  <div *ng-for="#weapon of slotWeapons" class="part-picker-element">
     <img src="{{weapon.iconUri}}" (click)="selectWeapon(weapon)">
     <span>{{weapon.name}}</span>
   </div>
 </div>
 <div *ng-if="currentLoadoutElement == 'ability'" class="part-picker">
-  <div *ng-for="#ability of abilities" class="part-picker-element">
+  <div *ng-for="#ability of slotAbilities" class="part-picker-element">
     <img src="{{ability.iconUri}}" (click)="selectAbility(ability)">
     <span>{{ability.name}}</span>
   </div>
 </div>
 <div *ng-if="currentLoadoutElement == 'perk'" class="part-picker">
-  <div *ng-for="#perk of perks" class="part-picker-element">
+  <div *ng-for="#perk of slotPerks" class="part-picker-element">
     <img src="{{perk.iconUri}}" (click)="selectPerk(perk)">
     <span>{{perk.name}}</span>
   </div>

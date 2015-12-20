@@ -7,12 +7,15 @@ import {AbilityType} from './ability-type'
 import {Perk} from './perk';
 import {PerkType} from './perk-type';
 import {SHIPS, APERKS, AWEAPONS, AABILITY} from './sample-data';
+import {ShipService} from './ship-service';
+import {HTTP_PROVIDERS} from 'angular2/http';
 
 @Component({
     selector: 'dreadnought-loadout',
     directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
     templateUrl: 'templates/loadout.html',
-    styleUrls: ['css/default.css']
+    styleUrls: ['css/default.css'],
+    providers: [ShipService]
 })
 class LoadoutComponent {
   private selectedShip: Ship = {"id": null, "name": null, "iconUri": "temp/logo.png"};
@@ -33,12 +36,31 @@ class LoadoutComponent {
     {"id": 1, "name": "Engineering", "slot": PerkType.ENGINEERING, "iconUri": "temp/logo.png"},
     {"id": 1, "name": "Weapons", "slot": PerkType.WEAPONS, "iconUri": "temp/logo.png"},
   ];
-  private ships = SHIPS;
-  private weapons: Weapon[];
-  private abilities: Ability[];
-  private perks: Perk[];
+  private ships: Array<Ship>;
+  
+  private shipWeapons: Weapon[];
+  private slotWeapons: Weapon[];
+  
+  private shipAbilities: Ability[];
+  private slotAbilities: Ability[];
+  
+  private shipPerks: Perk[];
+  private slotPerks: Perk[];
+  
   private currentLoadoutElement;
   private infoVisible = false;
+  
+  constructor(public shipService: ShipService) {
+    this.getShips();
+  }
+  
+  getShips() {
+    this.shipService.getShips()
+    .subscribe(
+      apiShips => this.ships = apiShips,
+      error => this.ships = SHIPS
+    );
+  }
 
   selectPart(part: string) {
     this.currentLoadoutElement = part;
@@ -59,36 +81,36 @@ class LoadoutComponent {
   getWeaponSlot(slot: string) {
     let weaponType: WeaponType = WeaponType[slot];
     let correctWeapons: Weapon[]= []
-    for (let weapon of AWEAPONS) {
+    for (let weapon of this.shipWeapons) {
       if (weapon.slot == weaponType) {
         correctWeapons.push(weapon)
       }
     }
-    this.weapons = correctWeapons;
+    this.slotWeapons = correctWeapons;
     this.currentLoadoutElement = "weapon";
   }
   
   getAbility(slot: string) {
     let abilityType: AbilityType = AbilityType[slot];
     let correctAbilities: Ability[] = []
-    for (let ability of AABILITY) {
+    for (let ability of this.shipAbilities) {
       if (ability.slot == abilityType) {
         correctAbilities.push(ability);
       }
     }
-    this.abilities = correctAbilities;
+    this.slotAbilities = correctAbilities;
     this.currentLoadoutElement = "ability";
   }
   
   getPerk(slot: string) {
     let perkType: PerkType = PerkType[slot];
     let correctPerks: Perk[] = []
-    for (let perk of APERKS) {
+    for (let perk of this.shipPerks) {
       if (perk.slot == perkType) {
         correctPerks.push(perk);
       }
     }
-    this.perks = correctPerks;
+    this.slotPerks = correctPerks;
     this.currentLoadoutElement = "perk"
   }
   
@@ -99,7 +121,34 @@ class LoadoutComponent {
   
   selectShip(ship: Ship) {
     this.selectedShip = ship;
+    this.getWeaponsForShip(ship.name);
+    this.getAbilitiesForShip(ship.name);
+    this.getPerksForShip(ship.name);
     this.currentLoadoutElement = null;
+  }
+  
+  getWeaponsForShip(shipName: string) {
+    this.shipService.getWeapons(shipName)
+    .subscribe(
+      apiWeapons => this.shipWeapons = apiWeapons,
+      error => this.shipWeapons = AWEAPONS
+    );
+  }
+  
+  getAbilitiesForShip(shipName: string) {
+    this.shipService.getAbilities(shipName)
+    .subscribe(
+      apiAbilities => this.shipAbilities = apiAbilities,
+      error => this.shipAbilities = AABILITY
+    );
+  }
+  
+  getPerksForShip(shipName: string) {
+    this.shipService.getPerks(shipName)
+    .subscribe(
+      apiPerks => this.shipPerks = apiPerks,
+      error => this.shipPerks = APERKS
+    );
   }
   
   selectWeapon(weapon: Weapon) {
@@ -114,4 +163,4 @@ class LoadoutComponent {
 
 }
 
-bootstrap(LoadoutComponent);
+bootstrap(LoadoutComponent, [HTTP_PROVIDERS]);
