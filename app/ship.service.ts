@@ -38,7 +38,7 @@ export class ShipService {
 			let result: Array<Weapon> = [];
 			if (weapons) {
 				weapons.forEach((weapon) => {
-					result.push(new Weapon(weapon.id, weapon.name, weapon.slot, weapon.icon_uri))
+					result.push(new Weapon(weapon.id, weapon.name, weapon.type, weapon.icon_uri))
 				});
 			}
 			return result;
@@ -54,7 +54,7 @@ export class ShipService {
 			let result: Array<Ability> = [];
 			if (abilities) {
 				abilities.forEach((ability) => {
-					result.push(new Ability(ability.id, ability.name, ability.slot, ability.icon_uri))
+					result.push(new Ability(ability.id, ability.name, ability.type, ability.icon_uri))
 				});
 			}
 			return result;
@@ -70,7 +70,7 @@ export class ShipService {
 			let result: Array<Perk> = [];
 			if (perks) {
 				perks.forEach((perk) => {
-					result.push(new Perk(perk.id, perk.name, perk.slot, perk.icon_uri))
+					result.push(new Perk(perk.id, perk.name, perk.type, perk.icon_uri))
 				});
 			}
 			return result;
