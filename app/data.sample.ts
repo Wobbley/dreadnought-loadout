@@ -1,10 +1,10 @@
 import {Ship} from './ship';
 import {Weapon} from './weapon';
-import {WeaponType} from './weapon-type';
+import {WeaponType} from './weapon.type';
 import {Ability} from './ability';
-import {AbilityType} from './ability-type';
+import {AbilityType} from './ability.type';
 import {Perk} from './perk';
-import {PerkType} from './perk-type';
+import {PerkType} from './perk.type';
 
 export var SHIPS: Ship[] = [
   { "id": 1, "name": "Fulgora", "iconUri": "temp/fulgora.png"},

@@ -4,6 +4,7 @@ import {Ship} from './ship';
 import {Weapon} from './weapon'
 import {Ability} from './ability'
 import {Perk} from './perk'
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ShipService {

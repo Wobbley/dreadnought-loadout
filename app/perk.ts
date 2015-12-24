@@ -1,4 +1,4 @@
-import {PerkType} from './perk-type'
+import {PerkType} from './perk.type'
 
 export class Perk {
   id: number;

@@ -2,43 +2,43 @@
   <div class="loadout-box">
     <img class="loadout-element" (click)="selectPart('ship')" src="{{selectedShip.iconUri}}">
   </div>
-  <div *ng-if="shipSelected()" class="loadout-box">
+  <div *ngIf="shipSelected()" class="loadout-box">
     <img class="loadout-element" (click)="getWeaponSlot('PRIMARY')" src="{{selectedWeapons[0].iconUri}}">
     <img class="loadout-element" (click)="getWeaponSlot('SECONDARY')" src="{{selectedWeapons[1].iconUri}}">
   </div>
-  <div *ng-if="shipSelected()" class="loadout-box">
+  <div *ngIf="shipSelected()" class="loadout-box">
     <img class="loadout-element" (click)="getAbility('PRIMARY')" src="{{selectedAbilities[0].iconUri}}">
     <img class="loadout-element" (click)="getAbility('SECONDARY')" src="{{selectedAbilities[1].iconUri}}">
     <img class="loadout-element" (click)="getAbility('PERIMETER')" src="{{selectedAbilities[2].iconUri}}">
     <img class="loadout-element" (click)="getAbility('INTERNAL')" src="{{selectedAbilities[3].iconUri}}">
   </div>
-  <div *ng-if="shipSelected()">
+  <div *ngIf="shipSelected()">
     <img class="loadout-element" (click)="getPerk('COMMUNICATIONS')" src="{{selectedPerks[0].iconUri}}">
     <img class="loadout-element" (click)="getPerk('NAVIGATION')" src="{{selectedPerks[1].iconUri}}">
     <img class="loadout-element" (click)="getPerk('ENGINEERING')" src="{{selectedPerks[2].iconUri}}">
     <img class="loadout-element" (click)="getPerk('WEAPONS')" src="{{selectedPerks[3].iconUri}}">
   </div>
 </div>
-<div *ng-if="currentLoadoutElement == 'ship'" class="part-picker">
-  <div *ng-for="#ship of ships" class="part-picker-element">
+<div *ngIf="currentLoadoutElement == 'ship'" class="part-picker">
+  <div *ngFor="#ship of ships" class="part-picker-element">
     <img src="{{ship.iconUri}}" (click)="selectShip(ship)">
     <span>{{ship.name}}</span>
   </div>
 </div>
-<div *ng-if="currentLoadoutElement == 'weapon'" class="part-picker">
-  <div *ng-for="#weapon of slotWeapons" class="part-picker-element">
+<div *ngIf="currentLoadoutElement == 'weapon'" class="part-picker">
+  <div *ngFor="#weapon of slotWeapons" class="part-picker-element">
     <img src="{{weapon.iconUri}}" (click)="selectWeapon(weapon)">
     <span>{{weapon.name}}</span>
   </div>
 </div>
-<div *ng-if="currentLoadoutElement == 'ability'" class="part-picker">
-  <div *ng-for="#ability of slotAbilities" class="part-picker-element">
+<div *ngIf="currentLoadoutElement == 'ability'" class="part-picker">
+  <div *ngFor="#ability of slotAbilities" class="part-picker-element">
     <img src="{{ability.iconUri}}" (click)="selectAbility(ability)">
     <span>{{ability.name}}</span>
   </div>
 </div>
-<div *ng-if="currentLoadoutElement == 'perk'" class="part-picker">
-  <div *ng-for="#perk of slotPerks" class="part-picker-element">
+<div *ngIf="currentLoadoutElement == 'perk'" class="part-picker">
+  <div *ngFor="#perk of slotPerks" class="part-picker-element">
     <img src="{{perk.iconUri}}" (click)="selectPerk(perk)">
     <span>{{perk.name}}</span>
   </div>

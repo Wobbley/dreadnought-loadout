@@ -1,23 +1,23 @@
-import {Component, bootstrap, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component,} from 'angular2/core';
+import {FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
 import {Ship} from './ship';
 import {Weapon} from './weapon';
-import {WeaponType} from './weapon-type';
+import {WeaponType} from './weapon.type';
 import {Ability} from './ability';
-import {AbilityType} from './ability-type'
+import {AbilityType} from './ability.type'
 import {Perk} from './perk';
-import {PerkType} from './perk-type';
-import {SHIPS, APERKS, AWEAPONS, AABILITY} from './sample-data';
-import {ShipService} from './ship-service';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import {PerkType} from './perk.type';
+import {SHIPS, APERKS, AWEAPONS, AABILITY} from './data.sample';
+import {ShipService} from './ship.service';
 
 @Component({
     selector: 'dreadnought-loadout',
     directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
-    templateUrl: 'templates/loadout.html',
-    styleUrls: ['css/default.css'],
+    templateUrl: 'app/loadout.html',
+    styleUrls: ['default.css'],
     providers: [ShipService]
 })
-class LoadoutComponent {
+export class LoadoutComponent {
   private selectedShip: Ship = {"id": null, "name": null, "iconUri": "temp/logo.png"};
   private selectedWeapons: Weapon[] = [
     {"id": 1, "name": "Primary", "slot": WeaponType.PRIMARY, "iconUri": "temp/logo.png"},
@@ -162,5 +162,3 @@ class LoadoutComponent {
   }
 
 }
-
-bootstrap(LoadoutComponent, [HTTP_PROVIDERS]);

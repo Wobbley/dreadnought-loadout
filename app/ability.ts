@@ -1,4 +1,4 @@
-import {AbilityType} from './ability-type'
+import {AbilityType} from './ability.type'
 
 export class Ability {
   id: number;
