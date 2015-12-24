@@ -20,21 +20,21 @@ import {ShipService} from './ship.service';
 export class LoadoutComponent {
   private selectedShip: Ship = {"id": null, "name": null, "iconUri": "temp/logo.png"};
   private selectedWeapons: Weapon[] = [
-    {"id": 1, "name": "Primary", "slot": WeaponType.PRIMARY, "iconUri": "temp/logo.png"},
-    {"id": 1, "name": "Secondary", "slot": WeaponType.SECONDARY, "iconUri": "temp/logo.png"}
+    {"id": 1, "name": "Primary", "slot": WeaponType.Primary, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Secondary", "slot": WeaponType.Secondary, "iconUri": "temp/logo.png"}
   ];
   private selectedAbilities: Ability[] = [
-    {"id": 1, "name": "Main Module", "slot": AbilityType.PRIMARY, "iconUri": "temp/logo.png"},
-    {"id": 1, "name": "Secondary Module", "slot": AbilityType.SECONDARY, "iconUri": "temp/logo.png"},
-    {"id": 1, "name": "Perimeter Module", "slot": AbilityType.PERIMETER, "iconUri": "temp/logo.png"},
-    {"id": 1, "name": "Internal Module", "slot": AbilityType.INTERNAL, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Main Module", "slot": AbilityType.Primary, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Secondary Module", "slot": AbilityType.Secondary, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Perimeter Module", "slot": AbilityType.Perimeter, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Internal Module", "slot": AbilityType.Internal, "iconUri": "temp/logo.png"},
     
   ];
   private selectedPerks: Perk[] = [
-    {"id": 1, "name": "Communications", "slot": PerkType.COMMUNICATIONS, "iconUri": "temp/logo.png"},
-    {"id": 1, "name": "Navigation", "slot": PerkType.NAVIGATION, "iconUri": "temp/logo.png"},
-    {"id": 1, "name": "Engineering", "slot": PerkType.ENGINEERING, "iconUri": "temp/logo.png"},
-    {"id": 1, "name": "Weapons", "slot": PerkType.WEAPONS, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Communications", "slot": PerkType.Communications, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Navigation", "slot": PerkType.Navigation, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Engineering", "slot": PerkType.Engineering, "iconUri": "temp/logo.png"},
+    {"id": 1, "name": "Weapons", "slot": PerkType.Weapons, "iconUri": "temp/logo.png"},
   ];
   private ships: Array<Ship>;
   

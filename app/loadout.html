@@ -3,20 +3,20 @@
     <img class="loadout-element" (click)="selectPart('ship')" src="{{selectedShip.iconUri}}">
   </div>
   <div *ngIf="shipSelected()" class="loadout-box">
-    <img class="loadout-element" (click)="getWeaponSlot('PRIMARY')" src="{{selectedWeapons[0].iconUri}}">
-    <img class="loadout-element" (click)="getWeaponSlot('SECONDARY')" src="{{selectedWeapons[1].iconUri}}">
+    <img class="loadout-element" (click)="getWeaponSlot('Primary')" src="{{selectedWeapons[0].iconUri}}">
+    <img class="loadout-element" (click)="getWeaponSlot('Secondary')" src="{{selectedWeapons[1].iconUri}}">
   </div>
   <div *ngIf="shipSelected()" class="loadout-box">
-    <img class="loadout-element" (click)="getAbility('PRIMARY')" src="{{selectedAbilities[0].iconUri}}">
-    <img class="loadout-element" (click)="getAbility('SECONDARY')" src="{{selectedAbilities[1].iconUri}}">
-    <img class="loadout-element" (click)="getAbility('PERIMETER')" src="{{selectedAbilities[2].iconUri}}">
-    <img class="loadout-element" (click)="getAbility('INTERNAL')" src="{{selectedAbilities[3].iconUri}}">
+    <img class="loadout-element" (click)="getAbility('Primary')" src="{{selectedAbilities[0].iconUri}}">
+    <img class="loadout-element" (click)="getAbility('Secondary')" src="{{selectedAbilities[1].iconUri}}">
+    <img class="loadout-element" (click)="getAbility('Perimeter')" src="{{selectedAbilities[2].iconUri}}">
+    <img class="loadout-element" (click)="getAbility('Internal')" src="{{selectedAbilities[3].iconUri}}">
   </div>
   <div *ngIf="shipSelected()">
-    <img class="loadout-element" (click)="getPerk('COMMUNICATIONS')" src="{{selectedPerks[0].iconUri}}">
-    <img class="loadout-element" (click)="getPerk('NAVIGATION')" src="{{selectedPerks[1].iconUri}}">
-    <img class="loadout-element" (click)="getPerk('ENGINEERING')" src="{{selectedPerks[2].iconUri}}">
-    <img class="loadout-element" (click)="getPerk('WEAPONS')" src="{{selectedPerks[3].iconUri}}">
+    <img class="loadout-element" (click)="getPerk('Communications')" src="{{selectedPerks[0].iconUri}}">
+    <img class="loadout-element" (click)="getPerk('Navigation')" src="{{selectedPerks[1].iconUri}}">
+    <img class="loadout-element" (click)="getPerk('Engineering')" src="{{selectedPerks[2].iconUri}}">
+    <img class="loadout-element" (click)="getPerk('Weapons')" src="{{selectedPerks[3].iconUri}}">
   </div>
 </div>
 <div *ngIf="currentLoadoutElement == 'ship'" class="part-picker">

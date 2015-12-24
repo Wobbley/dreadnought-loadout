@@ -1,4 +1,4 @@
 export enum WeaponType {
-  PRIMARY,
-  SECONDARY,
+  Primary = <any>"Primary",
+  Secondary = <any>"Secondary",
 }

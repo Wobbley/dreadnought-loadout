@@ -1,6 +1,6 @@
 export enum PerkType {
-  COMMUNICATIONS,
-  NAVIGATION,
-  ENGINEERING,
-  WEAPONS,
+  Communications =<any>"Communications",
+  Navigation = <any>"Navigation",
+  Engineering = <any>"Engineering",
+  Weapons = <any>"Weapons"
 }

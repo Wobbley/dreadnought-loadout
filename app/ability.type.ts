@@ -1,6 +1,6 @@
 export enum AbilityType {
-  PRIMARY,
-  SECONDARY,
-  PERIMETER,
-  INTERNAL,
+  Primary = <any>"Primary",
+  Secondary = <any>"Secondary",
+  Perimeter = <any>"Perimeter",
+  Internal = <any>"Internal"
 }
