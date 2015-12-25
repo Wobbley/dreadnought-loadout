@@ -9,10 +9,11 @@ import {Perk} from './perk';
 import {PerkType} from './perk.type';
 import {SHIPS, APERKS, AWEAPONS, AABILITY} from './data.sample';
 import {ShipService} from './ship.service';
+import {TOOLTIP_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
 @Component({
     selector: 'dreadnought-loadout',
-    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
+    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, TOOLTIP_DIRECTIVES],
     templateUrl: 'app/loadout.html',
     styleUrls: ['default.css'],
     providers: [ShipService]
