@@ -14,7 +14,7 @@ export class ShipService {
 	}
 	
 	getShips() {
-    	return this.http.get('http://localhost:4000/api/ships')
+    	return this.http.get('http://dreadnoughthangar.com/api/ships')
     	.map( (responseData) => {
       		return responseData.json().data;
     	})
@@ -30,7 +30,7 @@ export class ShipService {
 	}
 	
 	getWeapons(shipName : string) {
-		return this.http.get('http://localhost:4000/api/ships/weapons/' + shipName)
+		return this.http.get('http://dreadnoughthangar.com/api/ships/weapons/' + shipName)
 		.map( (responseData) => {
 			return responseData.json().data;
 		})
@@ -46,7 +46,7 @@ export class ShipService {
 	}
 	
 	getAbilities(shipName: string) {
-		return this.http.get('http://localhost:4000/api/ships/abilities/' + shipName)
+		return this.http.get('http://dreadnoughthangar.com/api/ships/abilities/' + shipName)
 		.map((responseData) => {
 			return responseData.json().data;
 		})
@@ -62,7 +62,7 @@ export class ShipService {
 	}
 	
 	getPerks(shipName: string) {
-		return this.http.get('http://localhost:4000/api/ships/perks/' + shipName)
+		return this.http.get('http://dreadnoughthangar.com/api/ships/perks/' + shipName)
 		.map((responseData) => {
 			return responseData.json().data;
 		})
