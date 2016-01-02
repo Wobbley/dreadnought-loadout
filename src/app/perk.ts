@@ -1,15 +1,15 @@
-import {WeaponType} from './weapon.type'
+import {PerkType} from './perk.type';
 
-export class Weapon {
+export class Perk {
   id: number;
   name: string;
-  slot: WeaponType;
+  slot: PerkType;
   iconUri: string;
-  
+
   constructor(id: number, name: string, slot: string, iconUri: string) {
     this.id = id;
     this.name = name;
-    this.slot = WeaponType[slot];
+    this.slot = PerkType[slot];
     this.iconUri = iconUri;
   }
 }

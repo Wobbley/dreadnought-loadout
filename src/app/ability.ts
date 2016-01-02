@@ -1,15 +1,15 @@
-import {PerkType} from './perk.type'
+import {AbilityType} from './ability.type';
 
-export class Perk {
+export class Ability {
   id: number;
   name: string;
-  slot: PerkType;
+  slot: AbilityType;
   iconUri: string;
-  
+
   constructor(id: number, name: string, slot: string, iconUri: string) {
     this.id = id;
     this.name = name;
-    this.slot = PerkType[slot];
+    this.slot = AbilityType[slot];
     this.iconUri = iconUri;
   }
 }
