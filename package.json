@@ -1,15 +1,15 @@
 {
-  "name": "angular2-webpack-starter",
-  "version": "0.0.0",
-  "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E), Karma, Protractor, Jasmine, TypeScript, and Webpack by AngularClass",
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
-  "homepage": "https://github.com/angularclass/angular2-webpack-starter",
+  "name": "dreadnought-loadout",
+  "version": "1.0.0",
+  "description": "A Loadout builder for Dreadnought",
+  "author": "Dean Lozo <dean.lozo@gmail.com>",
+  "homepage": "https://github.com/Wobbley/dreadnought-loadout",
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/angular2-webpack-starter.git"
+    "url": "https://github.com/Wobbley/dreadnought-loadout.git"
   },
   "bugs": {
-    "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
+    "url": "https://github.com/Wobbley/dreadnought-loadout/issues"
   },
   "license": "MIT",
   "main": "",
