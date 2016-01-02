@@ -16,7 +16,7 @@ import {LoadoutComponent} from './app/loadout.component';
  * Bootstrap our Angular app with a top level component `App` and inject
  * our Services and Providers into Angular's dependency injection
  */
-enableProdMode() // include for production builds
+enableProdMode(); // include for production builds
 function main() {
   return bootstrap(LoadoutComponent, [
     // These are dependencies of our App
