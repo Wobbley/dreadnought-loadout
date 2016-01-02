@@ -19,22 +19,22 @@ import {TOOLTIP_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
     providers: [ShipService]
 })
 export class LoadoutComponent {
-  private selectedShip: Ship = {'id': null, 'name': null, 'iconUri': 'img/temp/logo.png'};
+  private selectedShip: Ship = {'id': null, 'name': null, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'};
   private selectedWeapons: Weapon[] = [
-    {'id': 1, 'name': 'Primary', 'slot': WeaponType.Primary, 'iconUri': 'img/temp/logo.png'},
-    {'id': 1, 'name': 'Secondary', 'slot': WeaponType.Secondary, 'iconUri': 'img/temp/logo.png'}
+    {'id': 1, 'name': 'Primary', 'slot': WeaponType.Primary, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
+    {'id': 1, 'name': 'Secondary', 'slot': WeaponType.Secondary, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'}
   ];
   private selectedAbilities: Ability[] = [
-    {'id': 1, 'name': 'Main Module', 'slot': AbilityType.Primary, 'iconUri': 'img/temp/logo.png'},
-    {'id': 1, 'name': 'Secondary Module', 'slot': AbilityType.Secondary, 'iconUri': 'img/temp/logo.png'},
-    {'id': 1, 'name': 'Perimeter Module', 'slot': AbilityType.Perimeter, 'iconUri': 'img/temp/logo.png'},
-    {'id': 1, 'name': 'Internal Module', 'slot': AbilityType.Internal, 'iconUri': 'img/temp/logo.png'},
+    {'id': 1, 'name': 'Main Module', 'slot': AbilityType.Primary, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
+    {'id': 1, 'name': 'Secondary Module', 'slot': AbilityType.Secondary, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
+    {'id': 1, 'name': 'Perimeter Module', 'slot': AbilityType.Perimeter, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
+    {'id': 1, 'name': 'Internal Module', 'slot': AbilityType.Internal, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
   ];
   private selectedPerks: Perk[] = [
-    {'id': 1, 'name': 'Communications', 'slot': PerkType.Communications, 'iconUri': 'img/temp/logo.png'},
-    {'id': 1, 'name': 'Navigation', 'slot': PerkType.Navigation, 'iconUri': 'img/temp/logo.png'},
-    {'id': 1, 'name': 'Engineering', 'slot': PerkType.Engineering, 'iconUri': 'img/temp/logo.png'},
-    {'id': 1, 'name': 'Weapons', 'slot': PerkType.Weapons, 'iconUri': 'img/temp/logo.png'},
+    {'id': 1, 'name': 'Communications', 'slot': PerkType.Communications, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
+    {'id': 1, 'name': 'Navigation', 'slot': PerkType.Navigation, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
+    {'id': 1, 'name': 'Engineering', 'slot': PerkType.Engineering, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
+    {'id': 1, 'name': 'Weapons', 'slot': PerkType.Weapons, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
   ];
 
   private ships: Array<Ship>;
