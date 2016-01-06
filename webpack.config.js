@@ -5,6 +5,8 @@
  */
 var path = require('path');
 var webpack = require('webpack');
+// Webpack Plugins
+var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 /*
  * Config
@@ -61,6 +63,13 @@ module.exports = {
     ],
     noParse: [ /.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/ ]
   },
+
+  plugins: [
+    new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js', minChunks: Infinity }),
+    new CommonsChunkPlugin({ name: 'common', filename: 'common.js', minChunks: 2, chunks: ['app', 'vendor'] })
+   // include uglify in production
+  ],
+
   // Other module loader config
   tslint: {
     emitErrors: false,

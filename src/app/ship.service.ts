@@ -10,7 +10,6 @@ import 'rxjs/add/operator/map';
 export class ShipService {
 
 	constructor(public http: Http) {
-		console.log('Ship service created', http);
 	}
 
 	getShips() {

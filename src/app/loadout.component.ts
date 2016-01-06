@@ -7,7 +7,7 @@ import {Ability} from './ability';
 import {AbilityType} from './ability.type';
 import {Perk} from './perk';
 import {PerkType} from './perk.type';
-import {SHIPS, APERKS, AWEAPONS, AABILITY} from './data.sample';
+import DefaultLoadoutFactory from './default.factory';
 import {ShipService} from './ship.service';
 import {TOOLTIP_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
@@ -16,26 +16,14 @@ import {TOOLTIP_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
     directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, TOOLTIP_DIRECTIVES],
     template: require('./loadout.html'),
     styles: [ require('../public/css/default.css')],
-    providers: [ShipService]
+    providers: [ShipService, DefaultLoadoutFactory]
 })
 export class LoadoutComponent {
-  private selectedShip: Ship = {'id': null, 'name': null, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'};
-  private selectedWeapons: Weapon[] = [
-    {'id': 1, 'name': 'Primary', 'slot': WeaponType.Primary, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-    {'id': 1, 'name': 'Secondary', 'slot': WeaponType.Secondary, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'}
-  ];
-  private selectedAbilities: Ability[] = [
-    {'id': 1, 'name': 'Main Module', 'slot': AbilityType.Primary, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-    {'id': 1, 'name': 'Secondary Module', 'slot': AbilityType.Secondary, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-    {'id': 1, 'name': 'Perimeter Module', 'slot': AbilityType.Perimeter, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-    {'id': 1, 'name': 'Internal Module', 'slot': AbilityType.Internal, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-  ];
-  private selectedPerks: Perk[] = [
-    {'id': 1, 'name': 'Communications', 'slot': PerkType.Communications, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-    {'id': 1, 'name': 'Navigation', 'slot': PerkType.Navigation, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-    {'id': 1, 'name': 'Engineering', 'slot': PerkType.Engineering, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-    {'id': 1, 'name': 'Weapons', 'slot': PerkType.Weapons, 'iconUri': 'http://dreadnoughthangar.com/images/logo.png'},
-  ];
+
+  public selectedShip: Ship;
+  public selectedWeapons: Weapon[];
+  public selectedAbilities: Ability[];
+  public selectedPerks: Perk[];
 
   private ships: Array<Ship>;
 
@@ -51,15 +39,18 @@ export class LoadoutComponent {
   private currentLoadoutElement;
   private infoVisible = false;
 
-  constructor(public shipService: ShipService) {
+  constructor(public shipService: ShipService, public defaultFactory : DefaultLoadoutFactory) {
     this.getShips();
+    this.selectedShip = this.defaultFactory.getShip();
+    this.selectedWeapons = this.defaultFactory.getWeapons();
+    this.selectedAbilities = this.defaultFactory.getAbilities();
+    this.selectedPerks = this.defaultFactory.getPerks();
   }
 
   getShips() {
     this.shipService.getShips()
     .subscribe(
-      apiShips => this.ships = apiShips,
-      error => this.ships = SHIPS
+      apiShips => this.ships = apiShips
     );
   }
 
@@ -126,29 +117,33 @@ export class LoadoutComponent {
     this.getAbilitiesForShip(ship.name);
     this.getPerksForShip(ship.name);
     this.currentLoadoutElement = null;
+    this.resetSelection();
+  }
+
+  resetSelection() {
+    this.selectedWeapons = this.defaultFactory.getWeapons();
+    this.selectedAbilities = this.defaultFactory.getAbilities();
+    this.selectedPerks = this.defaultFactory.getPerks();
   }
 
   getWeaponsForShip(shipName: string) {
     this.shipService.getWeapons(shipName)
     .subscribe(
-      apiWeapons => this.shipWeapons = apiWeapons,
-      error => this.shipWeapons = AWEAPONS
+      apiWeapons => this.shipWeapons = apiWeapons
     );
   }
 
   getAbilitiesForShip(shipName: string) {
     this.shipService.getAbilities(shipName)
     .subscribe(
-      apiAbilities => this.shipAbilities = apiAbilities,
-      error => this.shipAbilities = AABILITY
+      apiAbilities => this.shipAbilities = apiAbilities
     );
   }
 
   getPerksForShip(shipName: string) {
     this.shipService.getPerks(shipName)
     .subscribe(
-      apiPerks => this.shipPerks = apiPerks,
-      error => this.shipPerks = APERKS
+      apiPerks => this.shipPerks = apiPerks
     );
   }
 
