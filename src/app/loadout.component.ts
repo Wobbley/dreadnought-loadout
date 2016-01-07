@@ -1,14 +1,14 @@
 import {Component} from 'angular2/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
-import {Ship} from './ship';
-import {Weapon} from './weapon';
-import {WeaponType} from './weapon.type';
-import {Ability} from './ability';
-import {AbilityType} from './ability.type';
-import {Perk} from './perk';
-import {PerkType} from './perk.type';
+import Ship from './ship';
+import Weapon from './weapon';
+import WeaponType from './weapon.type';
+import Ability from './ability';
+import AbilityType from './ability.type';
+import Perk from './perk';
+import PerkType from './perk.type';
 import DefaultLoadoutFactory from './default.factory';
-import {ShipService} from './ship.service';
+import ShipService from './ship.service';
 import {TOOLTIP_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
 @Component({

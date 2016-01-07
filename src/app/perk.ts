@@ -1,6 +1,6 @@
-import {PerkType} from './perk.type';
+import PerkType from './perk.type';
 
-export class Perk {
+export default class Perk {
   id: number;
   name: string;
   slot: PerkType;

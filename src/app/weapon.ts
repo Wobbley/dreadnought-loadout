@@ -1,6 +1,6 @@
-import {WeaponType} from './weapon.type';
+import WeaponType from './weapon.type';
 
-export class Weapon {
+export default class Weapon {
   id: number;
   name: string;
   slot: WeaponType;
