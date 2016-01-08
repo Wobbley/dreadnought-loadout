@@ -62,14 +62,6 @@ export class LoadoutComponent {
     return this.selectedShip.id != null;
   }
 
-  showInfo() {
-    this.infoVisible = true;
-  }
-
-  hideInfo() {
-    this.infoVisible = false;
-  }
-
   getWeaponSlot(slot: string) {
     let weaponType: WeaponType = WeaponType[slot];
     let correctWeapons: Weapon[] = [];
