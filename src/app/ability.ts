@@ -1,6 +1,6 @@
-import {AbilityType} from './ability.type';
+import AbilityType from './ability.type';
 
-export class Ability {
+export default class Ability {
   id: number;
   name: string;
   slot: AbilityType;

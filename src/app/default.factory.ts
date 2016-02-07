@@ -1,12 +1,11 @@
-//Bytt ut disse med export default
 import {Injectable} from 'angular2/core';
-import {Ship} from './ship';
-import {Weapon} from './weapon';
-import {WeaponType} from './weapon.type';
-import {Ability} from './ability';
-import {AbilityType} from './ability.type';
-import {Perk} from './perk';
-import {PerkType} from './perk.type';
+import Ship from './ship';
+import Weapon from './weapon';
+import WeaponType from './weapon.type';
+import Ability from './ability';
+import AbilityType from './ability.type';
+import Perk from './perk';
+import PerkType from './perk.type';
 
 @Injectable()
 export default class DefaultFactory {

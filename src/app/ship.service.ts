@@ -1,13 +1,13 @@
 import {Http, Response, Request} from 'angular2/http';
 import {Injectable} from 'angular2/core';
-import {Ship} from './ship';
-import {Weapon} from './weapon';
-import {Ability} from './ability';
-import {Perk} from './perk';
+import Ship from './ship';
+import Weapon from './weapon';
+import Ability from './ability';
+import Perk from './perk';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class ShipService {
+export default class ShipService {
 
 	constructor(public http: Http) {
 	}
