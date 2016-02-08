@@ -13,7 +13,7 @@ export default class ShipService {
 	}
 
 	getShips() {
-    	return this.http.get('http://dreadnoughthangar.com/api/ships')
+    	return this.http.get('https://dreadnoughthangar.com/api/ships')
     	.map( (responseData) => {
       		return responseData.json().data;
     	})
@@ -29,7 +29,7 @@ export default class ShipService {
 	}
 
 	getWeapons(shipName : string) {
-		return this.http.get('http://dreadnoughthangar.com/api/ships/weapons/' + shipName)
+		return this.http.get('https://dreadnoughthangar.com/api/ships/weapons/' + shipName)
 		.map( (responseData) => {
 			return responseData.json().data;
 		})
@@ -45,7 +45,7 @@ export default class ShipService {
 	}
 
 	getAbilities(shipName: string) {
-		return this.http.get('http://dreadnoughthangar.com/api/ships/abilities/' + shipName)
+		return this.http.get('https://dreadnoughthangar.com/api/ships/abilities/' + shipName)
 		.map((responseData) => {
 			return responseData.json().data;
 		})
@@ -61,7 +61,7 @@ export default class ShipService {
 	}
 
 	getPerks(shipName: string) {
-		return this.http.get('http://dreadnoughthangar.com/api/ships/perks/' + shipName)
+		return this.http.get('https://dreadnoughthangar.com/api/ships/perks/' + shipName)
 		.map((responseData) => {
 			return responseData.json().data;
 		})
